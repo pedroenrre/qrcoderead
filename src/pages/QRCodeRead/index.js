@@ -5,7 +5,9 @@ import {Container, Content} from 'native-base';
 //import {Camera} from 'expo-camera';
 import * as Permissions from 'expo-permissions';
 import {BarCodeScanner} from 'expo-barcode-scanner';
+import BarCodeMask from 'react-native-barcode-mask';
 
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import styles from './styles';
 
 export default function Main({navigation}) {
@@ -63,13 +65,25 @@ export default function Main({navigation}) {
         <Content contentContainerStyle={styles.Content}>
           <BarCodeScanner
             ref={cam}
-            style={{flex: 1}}
+            style={{flex: 4}}
             onBarCodeScanned={barcode => {
               navigation.navigate('DataScreen', {
                 data: barcode.data,
               });
-            }}
-          />
+            }}>
+            <BarCodeMask
+              width={wp('60%')}
+              height={wp('60%')}
+              showAnimatedLine={false}
+              edgeWidth={wp('15%')}
+              edgeHeight={wp('15%')}
+            />
+          </BarCodeScanner>
+          <View style={styles.infoView}>
+            <Text style={styles.infoText}>
+              Posicione o qr-code para leitura
+            </Text>
+          </View>
         </Content>
       </Container>
     );

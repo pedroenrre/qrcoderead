@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: '#3d3d3d',
+    backgroundColor: '#000',
     //alignItems: 'center',
     //justifyContent: 'center',
   },
@@ -12,6 +12,15 @@ const styles = StyleSheet.create({
     //width: '90%',
     //alignItems: 'center',
     //justifyContent: 'center',
+  },
+  infoView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  infoText: {
+    color: '#fff',
+    fontSize: 18,
   },
 });
 
